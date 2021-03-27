@@ -97,7 +97,7 @@ var producGame = {
                 appid: game.gameCode,
                 factType: n == 6 ? 13 : 12,
                 duration: null,
-                reportTime: Math.floor(new Date().getTime() / 1000) + n * 67，
+                reportTime: Math.floor(new Date().getTime() / 1000) + n * 67,
                 afterCertify: 0,
                 appType: 1,
                 scene: 1001,
@@ -143,7 +143,7 @@ var producGame = {
 
             console.info(Buffer.from(res.data).toString('hex'))
 
-            await new Promise((resolve, reject) => setTimeout(resolve, 54 * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, 53 * 1000))
 
             ++n
         } while (n <= 7)
@@ -394,7 +394,8 @@ var producGame = {
         await queue.onIdle()
 
         await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 30) * 1000))
-        games = 0
+        games = await producGame.timeTaskQuery(axios, options)
+        games = games.filter(g => g.state === '1')
         console.info('剩余未领取game', games.length)
         for (let game of games) {
             await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 15) * 1000))
