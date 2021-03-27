@@ -97,11 +97,11 @@ var producGame = {
                 appid: game.gameCode,
                 factType: n == 6 ? 13 : 12,
                 duration: null,
-                reportTime: Math.floor(new Date().getTime() / 1000) + n * 62,
+                reportTime: Math.floor(new Date().getTime() / 1000) + n * 65，
                 afterCertify: 0,
                 appType: 1,
                 scene: 1001,
-                totalTime: n * 62,
+                totalTime: n * 65,
                 launchId: launchId1,
                 via: '',
                 AdsTotalTime: 0,
@@ -143,10 +143,10 @@ var producGame = {
 
             console.info(Buffer.from(res.data).toString('hex'))
 
-            await new Promise((resolve, reject) => setTimeout(resolve, 45 * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, 54 * 1000))
 
             ++n
-        } while (n <= 6)
+        } while (n <= 7)
     },
     gameInfo: async (axios, options) => {
         const { game, jar } = options
