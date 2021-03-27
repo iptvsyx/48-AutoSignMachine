@@ -414,7 +414,7 @@ var start = async (params) => {
     startTime: 5 * 60,
     ignoreRelay: true
   })
-*/
+
   // 每日奖励信息结果推送
   if (!('asm_func' in process.env) || process.env.asm_func === 'false') {
     await scheduler.regTask('dailyNotifyReward', async (request) => {
@@ -425,7 +425,7 @@ var start = async (params) => {
       ignoreRelay: true
     })
   }
-
+*/
 }
 module.exports = {
   start
