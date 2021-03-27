@@ -97,11 +97,11 @@ var producGame = {
                 appid: game.gameCode,
                 factType: n == 6 ? 13 : 12,
                 duration: null,
-                reportTime: Math.floor(new Date().getTime() / 1000) + n * 65，
+                reportTime: Math.floor(new Date().getTime() / 1000) + n * 67，
                 afterCertify: 0,
                 appType: 1,
                 scene: 1001,
-                totalTime: n * 65,
+                totalTime: n * 67,
                 launchId: launchId1,
                 via: '',
                 AdsTotalTime: 0,
