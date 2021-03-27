@@ -363,11 +363,11 @@ var producGame = {
       let games = allgames
         console.info('苏念修复补丁正在运行✅')
         console.info('剩余未完成game', games.length)
-        let queue = new PQueue({ concurrency: 1 });
+        let queue = new PQueue({ concurrency: 3 });
 
         let others = ['1110422106']
 
-        console.info('调度任务中', '并发数', 1)
+        console.info('调度任务中', '并发数', 3)
         for (let game of games) {
             queue.add(async () => {
                 console.info(game.name)
@@ -393,12 +393,12 @@ var producGame = {
 
         await queue.onIdle()
 
-        await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 30) * 1000))
+        await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 60) * 1000))
         games = await producGame.timeTaskQuery(axios, options)
         games = games.filter(g => g.state === '1')
         console.info('剩余未领取game', games.length)
         for (let game of games) {
-            await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 15) * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 30) * 1000))
             await producGame.gameFlowGet(axios, {
                 ...options,
                 gameId: game.gameId
