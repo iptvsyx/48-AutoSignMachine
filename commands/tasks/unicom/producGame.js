@@ -391,10 +391,13 @@ var producGame = {
             })
         }
 
-        /*await queue.onIdle()
+        await queue.onIdle()
 
        await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 40) * 1000))
-        games = await producGame.timeTaskQuery(axios, options)
+
+       console.info('运行完毕，请手动领取流量✅')
+
+/*games = await producGame.timeTaskQuery(axios, options)
         games = allgames
         console.info('剩余未领取game', games.length)
         for (let game of games) {
