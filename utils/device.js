@@ -15,21 +15,21 @@ function generateMixed(n) {
 
 
 var appInfo = {
-    version: 8.0200,
-    unicom_version: 'android@8.0200',
+    version: 8.1200,
+    unicom_version: 'android@8.1200',
     app_name: '手机营业厅',
     package_name: 'com.sinovatech.unicom.ui'
 }
 var devices = [{
     android_version: '7.1.2',
-    deviceBrand: 'samsung',
-    deviceModel: 'SM-G977N',
+    deviceBrand: 'meizu',
+    deviceModel: 'M2 E',
     buildSn: 'LMY48Z',
     deviceId: generateMixed(15) + ''
 }, {
     android_version: '9',
     deviceBrand: 'huawei',
-    deviceModel: 'VKY-AL00',
+    deviceModel: 'VTR-AL00',
     buildSn: 'V417IR',
     deviceId: generateMixed(15) + ''
 }]
