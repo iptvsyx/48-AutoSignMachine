@@ -15,9 +15,9 @@ var transParams = (data) => {
 
 
 var deviceInfos = [
-    'm=VKY-AL00&o=9&a=28&p=1080*1920&f=HUAWEI&mm=5725&cf=1800&cc=8&qqversion=null',
-    'm=SM-G977N&o=7&a=24&p=1080*1920&f=samsung&mm=5725&cf=1800&cc=8&qqversion=null',
-    'm=Pixel&o=8&a=27&p=1080*1920&f=google&mm=5725&cf=1800&cc=8&qqversion=null'
+     'm=VTR-AL00&o=9&a=28&p=1080*1920&f=HUAWEI&mm=5725&cf=1800&cc=8&qqversion=null',
+    'm=M2 E&o=7&a=24&p=1080*1920&f=Meizu&mm=5725&cf=1800&cc=8&qqversion=null',
+    'm=MI 6=8&a=27&p=1080*1920&f=XIAOMI&mm=5725&cf=1800&cc=8&qqversion=null'
 ]
 var deviceInfo = deviceInfos[Math.floor(Math.random() * deviceInfos.length)]
 
@@ -143,7 +143,7 @@ var producGame = {
 
             console.info(Buffer.from(res.data).toString('hex'))
 
-            await new Promise((resolve, reject) => setTimeout(resolve, 53 * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, 57 * 1000))
 
             ++n
         } while (n <= 7)
@@ -363,11 +363,11 @@ var producGame = {
       let games = allgames
         console.info('苏念修复补丁正在运行✅')
         console.info('剩余未完成game', games.length)
-        let queue = new PQueue({ concurrency: 3 });
+        let queue = new PQueue({ concurrency: 1 });
 
         let others = ['1110422106']
 
-        console.info('调度任务中', '并发数', 3)
+        console.info('调度任务中', '并发数', 1)
         for (let game of games) {
             queue.add(async () => {
                 console.info(game.name)
@@ -391,19 +391,19 @@ var producGame = {
             })
         }
 
-        await queue.onIdle()
+        /*await queue.onIdle()
 
-        await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 60) * 1000))
+       await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 40) * 1000))
         games = await producGame.timeTaskQuery(axios, options)
-        games = games.filter(g => g.state === '1')
+        games = allgames
         console.info('剩余未领取game', games.length)
         for (let game of games) {
-            await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 30) * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, (Math.floor(Math.random() * 10) + 31) * 1000))
             await producGame.gameFlowGet(axios, {
                 ...options,
                 gameId: game.gameId
             })
-        }
+        }*/
     },
     doGameIntegralTask: async (axios, options) => {
         let { games, jar } = await producGame.getTaskList(axios, options)
