@@ -105,7 +105,8 @@ var start = async (params) => {
     await require('./daily1GFlowTask').doTask(request, options)
   }, {
     ...taskOption,
-    startTime: 20 * 3600,
+    startTime: 0,
+    startHours: 0,
     ignoreRelay: true
   })
 
