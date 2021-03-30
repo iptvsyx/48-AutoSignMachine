@@ -17,7 +17,7 @@ var start = async (params) => {
   let taskOption = {
     init
   }
-/*
+
   // 每日签到积分
   await scheduler.regTask('dailysignin', async (request) => {
     await require('./dailysignin').doTask(request, options)
@@ -200,7 +200,7 @@ var start = async (params) => {
     await require('./producGame').gameBox(request, options)
     await require('./producGame').gameSignin(request, options)
   }, taskOption)
-*/
+
   // 首页-游戏-娱乐中心-天天领取3G流量包
   await scheduler.regTask('dailygameflow', async (request) => {
     await require('./producGame').doGameFlowTask(request, options)
@@ -210,7 +210,7 @@ var start = async (params) => {
     startHours: 0,
     ignoreRelay: true
   })
- /*
+ 
   // 首页-积分查询-游戏任务
   await scheduler.regTask('dailygameIntegral', async (request) => {
     await require('./producGame').doGameIntegralTask(request, options)
@@ -425,7 +425,7 @@ var start = async (params) => {
       ignoreRelay: true
     })
   }
-*/
+
 }
 module.exports = {
   start
