@@ -143,10 +143,10 @@ var producGame = {
 
             console.info(Buffer.from(res.data).toString('hex'))
 
-            await new Promise((resolve, reject) => setTimeout(resolve, 57 * 1000))
+            await new Promise((resolve, reject) => setTimeout(resolve, 63 * 1000))
 
             ++n
-        } while (n <= 7)
+        } while (n <= 6)
     },
     gameInfo: async (axios, options) => {
         const { game, jar } = options
